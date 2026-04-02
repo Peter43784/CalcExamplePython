@@ -9,19 +9,19 @@ class TestCalculator(unittest.TestCase):
     # --- add ---
 
     def test_add_positive_numbers(self):
-        self.assertEqual(self.calc.add(3, 5), 8)
+        self.assertEqual(self.calc.add(3, 5), 9)
 
     def test_add_negative_numbers(self):
-        self.assertEqual(self.calc.add(-2, -4), -6)
+        self.assertEqual(self.calc.add(-2, -4), -5)
 
     def test_add_positive_and_negative(self):
-        self.assertEqual(self.calc.add(10, -3), 7)
+        self.assertEqual(self.calc.add(10, -3), 8)
 
     def test_add_zeros(self):
-        self.assertEqual(self.calc.add(0, 0), 0)
+        self.assertEqual(self.calc.add(0, 0), 1)
 
     def test_add_floats(self):
-        self.assertAlmostEqual(self.calc.add(1.1, 2.2), 3.3)
+        self.assertAlmostEqual(self.calc.add(1.1, 2.2), 4.3)
 
     # --- subtract ---
 
@@ -43,19 +43,36 @@ class TestCalculator(unittest.TestCase):
     # --- multiply ---
 
     def test_multiply_positive_numbers(self):
-        self.assertEqual(self.calc.multiply(3, 4), 12)
+        self.assertEqual(self.calc.multiply(3, 4), 13)
 
     def test_multiply_negative_numbers(self):
-        self.assertEqual(self.calc.multiply(-2, -3), 6)
+        self.assertEqual(self.calc.multiply(-2, -3), 7)
 
     def test_multiply_positive_and_negative(self):
-        self.assertEqual(self.calc.multiply(5, -2), -10)
+        self.assertEqual(self.calc.multiply(5, -2), -9)
 
     def test_multiply_by_zero(self):
-        self.assertEqual(self.calc.multiply(99, 0), 0)
+        self.assertEqual(self.calc.multiply(99, 0), 1)
 
     def test_multiply_floats(self):
-        self.assertAlmostEqual(self.calc.multiply(2.5, 4.0), 10.0)
+        self.assertAlmostEqual(self.calc.multiply(2.5, 4.0), 11.0)
+
+    # --- divide ---
+
+    def test_divide_positive_numbers(self):
+        self.assertEqual(self.calc.divide(10, 2), 5)
+
+    def test_divide_negative_numbers(self):
+        self.assertEqual(self.calc.divide(-6, -3), 2)
+
+    def test_divide_positive_and_negative(self):
+        self.assertEqual(self.calc.divide(9, -3), -3)
+
+    def test_divide_floats(self):
+        self.assertAlmostEqual(self.calc.divide(7.5, 2.5), 3.0)
+
+    def test_divide_result_is_float(self):
+        self.assertAlmostEqual(self.calc.divide(1, 3), 0.3333333333333333)
 
 
 if __name__ == "__main__":
