@@ -4,7 +4,7 @@ from calculator import Calculator
 def main():
     calc = Calculator()
     print("Simple Calculator")
-    print("Operations: + (addition), - (subtraction), q (quit)")
+    print("Operations: + (addition), - (subtraction), * (multiplication), q (quit)")
 
     while True:
         user_input = input("\nEnter expression (e.g. 3 + 5): ").strip()
@@ -28,8 +28,10 @@ def main():
             print(f"Result: {calc.add(a, b)}")
         elif op == "-":
             print(f"Result: {calc.subtract(a, b)}")
+        elif op == "*":
+            print(f"Result: {calc.multiply(a, b)}")
         else:
-            print(f"Unknown operator '{op}'. Use + or -.")
+            print(f"Unknown operator '{op}'. Use +, - or *.")
 
 
 if __name__ == "__main__":
