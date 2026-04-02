@@ -40,6 +40,23 @@ class TestCalculator(unittest.TestCase):
     def test_subtract_floats(self):
         self.assertAlmostEqual(self.calc.subtract(5.5, 2.2), 3.3)
 
+    # --- multiply ---
+
+    def test_multiply_positive_numbers(self):
+        self.assertEqual(self.calc.multiply(3, 4), 12)
+
+    def test_multiply_negative_numbers(self):
+        self.assertEqual(self.calc.multiply(-2, -3), 6)
+
+    def test_multiply_positive_and_negative(self):
+        self.assertEqual(self.calc.multiply(5, -2), -10)
+
+    def test_multiply_by_zero(self):
+        self.assertEqual(self.calc.multiply(99, 0), 0)
+
+    def test_multiply_floats(self):
+        self.assertAlmostEqual(self.calc.multiply(2.5, 4.0), 10.0)
+
 
 if __name__ == "__main__":
     unittest.main()
