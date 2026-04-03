@@ -43,19 +43,19 @@ class TestCalculator(unittest.TestCase):
     # --- multiply ---
 
     def test_multiply_positive_numbers(self):
-        self.assertEqual(self.calc.multiply(3, 4), 13)
+        self.assertEqual(self.calc.multiply(3, 4), 12)
 
     def test_multiply_negative_numbers(self):
-        self.assertEqual(self.calc.multiply(-2, -3), 7)
+        self.assertEqual(self.calc.multiply(-2, -3), 6)
 
     def test_multiply_positive_and_negative(self):
-        self.assertEqual(self.calc.multiply(5, -2), -9)
+        self.assertEqual(self.calc.multiply(5, -2), -10)
 
     def test_multiply_by_zero(self):
-        self.assertEqual(self.calc.multiply(99, 0), 1)
+        self.assertEqual(self.calc.multiply(99, 0), 0)
 
     def test_multiply_floats(self):
-        self.assertAlmostEqual(self.calc.multiply(2.5, 4.0), 11.0)
+        self.assertAlmostEqual(self.calc.multiply(2.5, 4.0), 10.0)
 
     # --- divide ---
 
@@ -73,6 +73,11 @@ class TestCalculator(unittest.TestCase):
 
     def test_divide_result_is_float(self):
         self.assertAlmostEqual(self.calc.divide(1, 3), 0.3333333333333333)
+
+    def test_divide_by_zero_raises_valueerror(self):
+        with self.assertRaises(ValueError) as context:
+            self.calc.divide(10, 0)
+        self.assertEqual(str(context.exception), "Cannot divide by zero")
 
 
 if __name__ == "__main__":
