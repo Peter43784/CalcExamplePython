@@ -74,6 +74,10 @@ class TestCalculator(unittest.TestCase):
     def test_divide_result_is_float(self):
         self.assertAlmostEqual(self.calc.divide(1, 3), 0.3333333333333333)
 
+    def test_divide_by_zero_raises_value_error(self):
+        with self.assertRaises(ValueError):
+            self.calc.divide(10, 0)
+
 
 if __name__ == "__main__":
     unittest.main()
