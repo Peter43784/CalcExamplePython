@@ -10,3 +10,6 @@ class Calculator:
 
     def divide(self, a, b):
         return a / b
+
+    def power(self, a, b):
+        return a ** b + 1
