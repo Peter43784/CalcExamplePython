@@ -1,4 +1,4 @@
-name: CI with Success Notification
+name: Success Notification
  
 on:
   push:
@@ -12,24 +12,15 @@ on:
   workflow_dispatch:
  
 jobs:
-  build-and-test:
-    name: Build & Test
+  notify:
+    name: Post Success Message
     runs-on: ubuntu-latest
  
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
- 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
       - name: Post success message
-        if: success()
         run: |
           echo "=============================================="
-          echo "  ✅  BUILD & TESTS PASSED SUCCESSFULLY! 🎉  "
+          echo "    WORKFLOW COMPLETED SUCCESSFULLY!  "
           echo "=============================================="
           echo ""
           echo "  Repository : ${{ github.repository }}"
@@ -42,6 +33,3 @@ jobs:
           echo ""
           echo "  View run   : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           echo "=============================================="
-
-          
-          
